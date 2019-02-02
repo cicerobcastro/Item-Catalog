@@ -13,3 +13,18 @@ a {text-decoration: none; color:#1981CD; font-size: .75em;}
 .price {text-align: right; width:50%; float: right; }
 .editdeletepane{}
 .flash          { background: #cee5F5; }
+.top-menu {
+	padding-top: 30px;
+	padding-bottom: 30px;
+}
+.top-menu p {
+	margin-bottom: 0;
+	line-height: 16px;
+}
+.top-menu a {
+	margin-bottom: 0;
+	line-height: 16px;
+	font-size: 16px;
+	color: #7B7573;
+	font-weight: 400;
+}
