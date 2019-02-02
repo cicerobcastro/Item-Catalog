@@ -2,7 +2,7 @@ body           { font-family: Tahoma; background-color: #333333; background-imag
 h1               {font-family: Tahoma; color: #74312B }
 h1, h2, h3, h4       { color: #000000;  font-weight: bold;}
 h2 { font-family: 'Georgia', serif; margin: 1; }
-h2 { font-size: 1.2em; }
+h2 { font-size: 1.2em; text-decoration-line: underline; }
 p  { color: #000000;}
 a {text-decoration: none; color:#1981CD; font-size: .75em;}
 .pane {position:absolute;  border: 2px solid; opacity: 0.8;
@@ -13,18 +13,3 @@ a {text-decoration: none; color:#1981CD; font-size: .75em;}
 .price {text-align: right; width:50%; float: right; }
 .editdeletepane{}
 .flash          { background: #cee5F5; }
-.top-menu {
-	padding-top: 30px;
-	padding-bottom: 30px;
-}
-.top-menu p {
-	margin-bottom: 0;
-	line-height: 16px;
-}
-.top-menu a {
-	margin-bottom: 0;
-	line-height: 16px;
-	font-size: 16px;
-	color: #7B7573;
-	font-weight: 400;
-}
