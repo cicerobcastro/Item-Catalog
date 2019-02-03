@@ -15,6 +15,11 @@ Flask Framework
 Udacity Vagrantfile
 VirtualBox
 
+# Installing Dependencies
+Maybe you need install some dependencies to run this project
+In this case, please run this command below
+Command: pip  install  -r  requirements.txt
+
 # How to Install
  
 Install Vagrant & VirtualBox
