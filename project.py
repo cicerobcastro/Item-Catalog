@@ -1,6 +1,3 @@
-#!/usr/bin/python
-# -*- coding: utf-8 -*-
-
 from flask import Flask, render_template, request, redirect, jsonify, \
     url_for, flash
 from sqlalchemy import create_engine, asc
@@ -335,7 +332,6 @@ def editRestaurant(restaurant_id):
 def deleteRestaurant(restaurant_id):
     restaurantToDelete = \
         session.query(Restaurant).filter_by(id=restaurant_id).one()
-    print login_session['user_id']
     if restaurantToDelete.user_id != login_session['user_id']:
         return "<script>function myFunction() {alert('You dont have permission!!!\
         Please create your own restaurant.');}\
@@ -372,7 +368,6 @@ def showMenu(restaurant_id):
 @app.route('/restaurant/<int:restaurant_id>/menu/new/', methods=['GET',
            'POST'])
 def newMenuItem(restaurant_id):
-    print login_session['user_id']
     restaurant = \
         session.query(Restaurant).filter_by(id=restaurant_id).one()
     if login_session['user_id'] != restaurant.user_id:
