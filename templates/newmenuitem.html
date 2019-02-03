@@ -7,26 +7,22 @@
 <body>
 {% include "nav.html" %}
 {% include "flash.html" %}
-  
+<a href = '{{url_for('showRestaurants')}}'><h3>Show All Restaurants</h3> </a>  
 <h1>New Menu Item</h1>
 <div class="pane">
 <form action="#" method = 'post'>
-
-
 	<p>Name:</p>
-		<input type ='text' size='30' name='name'>
+		<input type ='text' size='30' name='name' required>
 	<p>Description:</p>
-		<input type ='text' size='30' name='description'>
+		<input type ='text' size='30' name='description' required>
 	<p>Price:</p>
-		<input type ='text' size='30' name='price'>
+		<input type ='text' size='30' name='price' required>
 	<p>Course:</p>
-		<input type ='radio'  name='course' value ='Appetizer'>Appetizer</br>
+		<input type ='radio'  name='course' value ='Appetizer' checked>Appetizer</br>
 		<input type ='radio'  name='course' value ='Entree'>Entree</br>
 		<input type ='radio' name='course' value ='Dessert'>Dessert</br>
 		<input type ='radio'  name='course' value ='Beverage'>Beverage</br>
 	</br>
-
-
 <input type='submit' value='Create'>
 
 </form>
