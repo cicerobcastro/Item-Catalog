@@ -41,7 +41,6 @@ def showLogin():
     state = ''.join(random.choice(string.ascii_uppercase + string.digits)
                     for x in xrange(32))
     login_session['state'] = state
-    # return "The current session state is %s" % login_session['state']
     return render_template('login.html', STATE=state)
 
 #Goggle Connect
@@ -139,9 +138,7 @@ def gconnect():
     print "done!"
     return output
 
-# User Helper Functions
-
-
+# Create a New User
 def createUser(login_session):
     newUser = User(name=login_session['username'], email=login_session[
                    'email'], picture=login_session['picture'])
@@ -150,12 +147,12 @@ def createUser(login_session):
     user = session.query(User).filter_by(email=login_session['email']).one()
     return user.id
 
-
+# Get info of User
 def getUserInfo(user_id):
     user = session.query(User).filter_by(id=user_id).first()
     return user
 
-
+# Get user ID
 def getUserID(email):
     try:
         user = session.query(User).filter_by(email=email).one()
@@ -186,8 +183,6 @@ def gdisconnect():
         del login_session['email']
         del login_session['picture']
 
-        # response = make_response(json.dumps('Successfully disconnected.'), 200)
-        # response.headers['Content-Type'] = 'application/json'
         response = redirect(url_for('showRestaurants'))
         return response
     else:
@@ -245,8 +240,6 @@ def showRestaurants():
     return render_template('restaurants.html', restaurants=restaurants)
 
 # Create a new restaurant
-
-
 @app.route('/restaurant/new/', methods=['GET', 'POST'])
 def newRestaurant():
     if 'username' not in login_session:
@@ -262,8 +255,6 @@ def newRestaurant():
         return render_template('newRestaurant.html')
 
 # Edit a restaurant
-
-
 @app.route('/restaurants/<int:restaurant_id>/edit/', methods=['GET', 'POST'])
 def editRestaurant(restaurant_id):
     editedRestaurant = session.query(Restaurant).filter_by(id = restaurant_id).one()
@@ -300,8 +291,6 @@ def deleteRestaurant(restaurant_id):
         return render_template('deleteRestaurant.html', restaurant=restaurantToDelete)
 
 # Show a restaurant menu
-
-
 @app.route('/restaurant/<int:restaurant_id>/')
 @app.route('/restaurant/<int:restaurant_id>/menu/')
 def showMenu(restaurant_id):
@@ -335,8 +324,6 @@ def newMenuItem(restaurant_id):
     return render_template('newMenuItem.html', restaurant=restaurant)
 
 # Edit a menu item
-
-
 @app.route('/restaurant/<int:restaurant_id>/menu/<int:menu_id>/edit', methods=['GET', 'POST'])
 def editMenuItem(restaurant_id, menu_id):
     editedItem = session.query(MenuItem).filter_by(id = menu_id).one()
